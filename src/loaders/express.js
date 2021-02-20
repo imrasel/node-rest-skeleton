@@ -49,7 +49,7 @@ class ExpressLoader {
       if (res.headerSent) {
         return next(error);
       }
-      res.status(error.code || 500).json({ success: false, message: error.message || 'An unknown error occured' });
+      res.status(error.code || 500).json({ code: res.statusCode, success: false, message: error.message || 'An unknown error occured' });
     });
 
     // security related configurations

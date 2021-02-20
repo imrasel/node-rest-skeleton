@@ -1,6 +1,5 @@
 const usersRoutes = require('./user.routes');
 const authRoutes = require('./auth.routes');
-const brandRoutes = require('./brand.routes');
 const HttpError = require('../utils/httpError.response')
 
 const routes = app => {

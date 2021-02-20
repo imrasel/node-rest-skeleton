@@ -9,7 +9,7 @@
 exports.success = (message, results, statusCode) => {
   return {
     message,
-    error: false,
+    suceess: true,
     code: statusCode,
     results
   };
@@ -34,7 +34,7 @@ exports.error = (message, statusCode) => {
   return {
     message,
     code: statusCode,
-    error: true
+    success: false
   };
 };
 
@@ -46,7 +46,7 @@ exports.error = (message, statusCode) => {
 exports.validation = (errors) => {
   return {
     message: "Validation errors",
-    error: true,
+    success: false,
     code: 422,
     errors
   };

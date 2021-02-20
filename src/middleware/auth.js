@@ -4,9 +4,11 @@ const User = require('../models/user');
 
 module.exports = async (req, res, next) => {
   try {
-    const token = req.headers.authorization.split(' ')[1];
+    let token;
+    if (req.headers.authorization) {
+      token = req.headers.authorization.split(' ')[1];
+    }
     if (!token) return next(new HttpError('Unauthorized', 401));
-    
 
     const decodedData = jwt.verify(token, process.env.JWT_SECRET)
 
@@ -20,7 +22,6 @@ module.exports = async (req, res, next) => {
 
 
   } catch(err) {
-    console.log('hello');
     const error = new HttpError(err.message, 500);
     return next(error);
   }

@@ -1,6 +1,6 @@
 const moment = require('moment');
 
-const HttpError =  require('../utils/httpError.response');
+const HttpError =  require('../../utils/httpError.response');
 const Section = require('../models/section');
 const School = require('../models/school');
 const Teacher = require('../models/teacher');

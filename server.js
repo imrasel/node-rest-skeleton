@@ -35,16 +35,13 @@ class Server {
       useUnifiedTopology: true,
       useNewUrlParser: true
     };
-    console.log(config.dbUrl)
     mongoose.connect( config.dbUrl, mongooseOptions )
       .then( (response) => {
-        // console.log(response.connections)
         this._logger.info("Database connection successful");
         new ExpressLoader();
       } )
       .catch( err => {
-        // console.error( err );
-        this._logger.info( err );
+        this._logger.error( err );
       } );
   }
 
