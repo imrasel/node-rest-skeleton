@@ -1,4 +1,5 @@
 const moment = require('moment');
+const config = require('../config');
 const Logger = require('../utils/logger');
 const logger = new Logger('app').getLogger();
 
@@ -13,9 +14,8 @@ exports.requestLogger = (data, isProduction) => {
   if (isProduction) {
     requestLogger.debug(data)
   } else {
-    process.env.NODE_ENV == 'development' ? requestLogger.debug(data) : null;
+    config.env == 'development' ? requestLogger.debug(data) : null;
   }
-  
 }
 
 exports.infoLogger = (message = '', data) => {

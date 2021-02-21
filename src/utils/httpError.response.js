@@ -3,7 +3,6 @@ class HttpError extends Error {
     super(message);
     this.code = errorCode;
   }
-
 }
 
 module.exports = HttpError

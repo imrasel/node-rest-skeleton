@@ -12,12 +12,12 @@ module.exports = class AbstractChecker {
    * @throws {TypeError} missing implementation of a method
    */
   static check(callee,target, methods) {
-      methods.forEach(m => {
-          if (typeof callee[m] !== "function") {
-              throw new TypeError(
-                  `${target.name} must implement the following method: ${m}`
-              );
-          }
-      });
+    methods.forEach(m => {
+      if (typeof callee[m] !== "function") {
+        throw new TypeError(
+            `${target.name} must implement the following method: ${m}`
+        );
+      }
+    });
   }
 }

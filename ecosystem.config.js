@@ -2,7 +2,7 @@ require('dotenv').config();
 // Options reference: https://pm2.io/doc/en/runtime/reference/ecosystem-file/
 module.exports = {
   apps: [{
-    name: 'School',
+    name: 'Node Rest Skeleton',
     script: 'server.js',
     instances: 1,
     exec_mode: 'cluster',

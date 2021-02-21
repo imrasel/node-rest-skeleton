@@ -8,14 +8,12 @@ const compression = require( "compression" );
 const Logger = require("../utils/logger");
 const log4js = require("log4js");
 const listEndpoints = require("express-list-endpoints");
-// const logger = require( "../services/Logger" );
 const config = require( "../config" );
 
 class ExpressLoader {
   constructor () {
     this.app = express();
     this._logger = new Logger("app").getLogger();
-
     // Setup error handling, this must be after all other middleware
     // this.app.use( ExpressLoader.errorHandler );
 
@@ -64,9 +62,7 @@ class ExpressLoader {
 
     // Start application
     this.server = this.app.listen( config.port, () => {
-      // console.log(`Express running, now listening on port ${config.port}`);
       this._logger.info(`Express running, now listening on port ${config.port}`);
-      // logger.info( `Express running, now listening on port ${config.port}` );
     } );
   }
 
@@ -119,7 +115,6 @@ class ExpressLoader {
       next();
     }
   }
-
 
   prettyPrintRegisteredRoutes() {
     let routesToPrint = listEndpoints(this.app);

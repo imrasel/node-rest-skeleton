@@ -9,26 +9,26 @@ module.exports = class ErrorHandler {
      * @param {Error} err checks if error is already handled
      */
     static handleError(err) {
-        // logger.error(err.stack);
-        if (!err) {
-            return;
-        }
+      // logger.error(err.stack);
+      if (!err) {
+          return;
+      }
 
-        if (err instanceof Error) {
-            if (err.handled) {
-                throw err;
-            }
+      if (err instanceof Error) {
+          if (err.handled) {
+              throw err;
+          }
 
-            err.handled = true;
-            
-            logger.error("Handled error: ", err);
-            throw err;
-        }
+          err.handled = true;
+          
+          logger.error("Handled error: ", err);
+          throw err;
+      }
 
-        let msg = typeof err === "string" ? err : "Something went wrong and handled.";
-        logger.error(msg);
-        let hError = new Error(msg);
-        hError.handled = true;
-        throw hError;
+      let msg = typeof err === "string" ? err : "Something went wrong and handled.";
+      logger.error(msg);
+      let hError = new Error(msg);
+      hError.handled = true;
+      throw hError;
     }
 }
